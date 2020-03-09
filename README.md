@@ -89,7 +89,7 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
     * Sign in page (on sign out)
 
 ## Wireframes
-![Wireframe](wireframe.png)
+![Wireframe](wireframe.jpeg)
 
 ### [BONUS] Digital Wireframes & Mockups
 
