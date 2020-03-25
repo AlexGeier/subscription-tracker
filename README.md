@@ -28,17 +28,19 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
 **Required Must-have Stories**
 
 * As a user, I should be able to create an account
-* As a user, I should be able to add/drop emails to the account
+* As a user, I should be able to add an email address to my account
+* As a user, I should be able to remove an email address from my account
 * As a user, I should be able to sign in to my account
 * As a user, I should be able to sign out of my account
 * As a user, I should be able to see a list of my subscriptions
-* As a user, I should be able to manually add/delete items from the list
 * As a user, I should be able to see when each subscription payment is due
 * As a user, I should be able to see how much money is due for each payment
 * As a user, I should be able to delete a subscription from the app
 * As a user, I should be able to see the total amount of money I pay each month
 * As a user, I should have the option to add a subscription with a dynamic monthly payment
 * As a user, I should have the option to create a subscription with a fixed monthly payment
+* As a user, I should be able to see the total amount I've spent on a susbscription
+* As a user, I should be able to see the average amount I've spent on dynamic susbscriptions
 
 **Optional Nice-to-have Stories**
 
@@ -52,12 +54,16 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
    * As a user, I should be able to sign in to my account
 * Register page
    * As a user, I should be able to create an account
+   * As a user, I should be able to add an email address to my account
 * Subscription List Page
     * As a user, I should be able to see a list of my subscriptions
     * As a user, I should be able to see when each subscription payment is due
     * As a user, I should be able to see how much money is due for each payment
     * As a user, I should be able to delete a subscription from the app
     * As a user, I should be able to see the total amount of money I pay each month
+* Subscription Detail Page
+    * As a user, I should be able to see the total amount I've spent on a susbscription
+    * As a user, I should be able to see the average amount I've spent on dynamic susbscriptions
 * Add a subscription page
     * As a user, I should have the option to add a subscription with a dynamic monthly payment
     * As a user, I should have the option to create a subscription with a fixed monthly payment
@@ -87,6 +93,7 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
     * Subscription detail page
 * Settings page
     * Sign in page (on sign out)
+    * As a user, I should be able to remove an email address from my account
 
 ## Wireframes
 ![Wireframe](wireframe.jpeg)
