@@ -137,19 +137,19 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
 ### Networking
 #### List of network requests by screen
 Haven't decided which network to use, either Firebase or Parse, our group members had conflict ideas, so currently we don't have any Code Snippets.
-   -Home Page
-      -(READ/GET) Get a list of the user’s current subscriptions
-      -(CREATE/POST) Create a new subscription
-      -(DELETE) Delete a subscription from the list
-   -Subscription Detail Page
-      -(READ/GET) Get more details about the selected subscription
-   -Calendar Page
-      -(READ/GET) Get a list of the user’s current subscriptions
-   -Sign in Page
-      -(READ/POST) Attempt to sign in to the user’s account
-   -Sign Up Page
-      -(CREATE/POST) Attempt to create a new account
-   -Settings Page
-      -(CREATE/POST) Add a new email to scan subscriptions from
-      -(DELETE) No longer scan subscriptions from an email account
+   - Home Page
+      - (READ/GET) Get a list of the user’s current subscriptions
+      - (CREATE/POST) Create a new subscription
+      - (DELETE) Delete a subscription from the list
+   - Subscription Detail Page
+      - (READ/GET) Get more details about the selected subscription
+   - Calendar Page
+      - (READ/GET) Get a list of the user’s current subscriptions
+   - Sign in Page
+      - (READ/POST) Attempt to sign in to the user’s account
+   - Sign Up Page
+      - (CREATE/POST) Attempt to create a new account
+   - Settings Page
+      - (CREATE/POST) Add a new email to scan subscriptions from
+      - (DELETE) No longer scan subscriptions from an email account
    
