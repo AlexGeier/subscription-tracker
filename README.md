@@ -122,6 +122,17 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
    | moneyDue     | Float  | Amount that’s due monthly |
    | dueDate      | Datetime   | When it’s due |
    | startDate      | Datetime   | The day the subscription started |
+   
+#### Dynamic amount Subscription
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | id            | UUID     | The subscription’s id |
+   | serviceName         | String   | Name of the subscribed service  |
+   | averageAmount     | Float  | The average cost of this subscription in the past |
+   | projectedAmount     | Float  | What the current period’s projected cost is |
+   | totalAmount     | Float  | The total cost of this subscription so far |
+   | dueDate      | Datetime   | When it’s due |
+   | startDate     | Datetime   | The day the subscription started |
 
 ### Networking
 - [Add list of network requests by screen ]
