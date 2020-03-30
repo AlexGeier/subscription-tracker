@@ -103,9 +103,17 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
 ### [BONUS] Interactive Prototype
 
 ## Schema 
-[This section will be completed in Unit 9]
 ### Models
-[Add table of models]
+#### User
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | id            | UUID     | unique id for the user (default field) |
+   | email         | String   | The user’s email address |
+   | firstName     | String   | The user’s first name |
+   | lastName      | String   | The user's last name |
+
+
 ### Networking
 - [Add list of network requests by screen ]
 - [Create basic snippets for each Parse network request]
