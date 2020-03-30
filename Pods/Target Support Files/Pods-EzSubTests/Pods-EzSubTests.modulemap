@@ -1,0 +1,6 @@
+framework module Pods_EzSubTests {
+  umbrella header "Pods-EzSubTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
