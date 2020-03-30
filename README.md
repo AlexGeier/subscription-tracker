@@ -136,7 +136,7 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
 
 ### Networking
 #### List of network requests by screen
-Haven't decided which network to use, either Firebase or Parse, our group members had conflict ideas, so currently we don't have any Code Snippets.
+We're still debating on which network to use, either Firebase or Parse. Our group members have different ideas, so currently we don't have any Code Snippets.
    - Home Page
       - (READ/GET) Get a list of the user’s current subscriptions
       - (CREATE/POST) Create a new subscription
