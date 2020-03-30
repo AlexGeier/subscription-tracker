@@ -113,6 +113,15 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
    | firstName     | String   | The user’s first name |
    | lastName      | String   | The user's last name |
 
+#### Fixed amount Subscription
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | id            | UUID     | The subscription’s id |
+   | serviceName         | String   | Name of the subscribed service  |
+   | moneyDue     | Float  | Amount that’s due monthly |
+   | dueDate      | Datetime   | When it’s due |
+   | startDate      | Datetime   | The day the subscription started |
 
 ### Networking
 - [Add list of network requests by screen ]
