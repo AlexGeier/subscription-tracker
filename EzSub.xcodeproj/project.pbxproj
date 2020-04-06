@@ -18,6 +18,10 @@
 		64C916A674A5F91AA571C700 /* Pods_EzSub_EzSubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 790FE06D3EEF1C5EC3BECA11 /* Pods_EzSub_EzSubUITests.framework */; };
 		967BB06E66CF3E008548672A /* Pods_EzSub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7257224AF6308969534AAAE3 /* Pods_EzSub.framework */; };
 		9DB9BEE99D0FA7C81DBEE1FC /* Pods_EzSubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0650B354C714CE74EF9634 /* Pods_EzSubTests.framework */; };
+		FAA043CD243ABE9C005CCCDB /* SubscriptionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043CC243ABE9C005CCCDB /* SubscriptionListViewController.swift */; };
+		FAA043CF243AC391005CCCDB /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043CE243AC391005CCCDB /* SubscriptionCell.swift */; };
+		FAA043D1243AC778005CCCDB /* AddSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043D0243AC778005CCCDB /* AddSubscriptionViewController.swift */; };
+		FAA043D3243AC88A005CCCDB /* SubscriptionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043D2243AC88A005CCCDB /* SubscriptionListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		99D34DFC86CCE19DB184072E /* Pods-EzSub-EzSubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSub-EzSubUITests.debug.xcconfig"; path = "Target Support Files/Pods-EzSub-EzSubUITests/Pods-EzSub-EzSubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2D7CC40518845D94F9C0A4A /* Pods-EzSub-EzSubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSub-EzSubUITests.release.xcconfig"; path = "Target Support Files/Pods-EzSub-EzSubUITests/Pods-EzSub-EzSubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DD0650B354C714CE74EF9634 /* Pods_EzSubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzSubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA043CC243ABE9C005CCCDB /* SubscriptionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionListViewController.swift; sourceTree = "<group>"; };
+		FAA043CE243AC391005CCCDB /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
+		FAA043D0243AC778005CCCDB /* AddSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionViewController.swift; sourceTree = "<group>"; };
+		FAA043D2243AC88A005CCCDB /* SubscriptionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionListView.swift; sourceTree = "<group>"; };
 		FE95FBE4F8539D63EB16940A /* Pods-EzSubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSubTests.debug.xcconfig"; path = "Target Support Files/Pods-EzSubTests/Pods-EzSubTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,10 +137,14 @@
 				54E134E02432AFF700751992 /* AppDelegate.swift */,
 				54E134E22432AFF700751992 /* SceneDelegate.swift */,
 				54E134E42432AFF700751992 /* LoginViewController.swift */,
+				FAA043CC243ABE9C005CCCDB /* SubscriptionListViewController.swift */,
 				54E134E62432AFF800751992 /* Main.storyboard */,
 				54E134E92432AFFA00751992 /* Assets.xcassets */,
 				54E134EB2432AFFA00751992 /* LaunchScreen.storyboard */,
 				54E134EE2432AFFA00751992 /* Info.plist */,
+				FAA043CE243AC391005CCCDB /* SubscriptionCell.swift */,
+				FAA043D0243AC778005CCCDB /* AddSubscriptionViewController.swift */,
+				FAA043D2243AC88A005CCCDB /* SubscriptionListView.swift */,
 			);
 			path = EzSub;
 			sourceTree = "<group>";
@@ -407,9 +419,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAA043D3243AC88A005CCCDB /* SubscriptionListView.swift in Sources */,
 				54E134E52432AFF700751992 /* LoginViewController.swift in Sources */,
 				54E134E12432AFF700751992 /* AppDelegate.swift in Sources */,
+				FAA043CF243AC391005CCCDB /* SubscriptionCell.swift in Sources */,
 				54E134E32432AFF700751992 /* SceneDelegate.swift in Sources */,
+				FAA043CD243ABE9C005CCCDB /* SubscriptionListViewController.swift in Sources */,
+				FAA043D1243AC778005CCCDB /* AddSubscriptionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
