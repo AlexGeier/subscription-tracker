@@ -27,10 +27,10 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
 
 **Required Must-have Stories**
 
-* As a user, I should be able to create an account
+* As a user, I should be able to create an account (finishied)
 * As a user, I should be able to add an email address to my account
 * As a user, I should be able to remove an email address from my account
-* As a user, I should be able to sign in to my account
+* As a user, I should be able to sign in to my account (finished)
 * As a user, I should be able to sign out of my account
 * As a user, I should be able to see a list of my subscriptions
 * As a user, I should be able to see when each subscription payment is due
