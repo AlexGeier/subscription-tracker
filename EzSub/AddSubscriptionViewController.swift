@@ -15,25 +15,26 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
     @IBOutlet weak var billingDatePicker: UIPickerView!
     
     @IBAction func createSubscription(_ sender: Any) {
-        // TODO: Create a fixed amount subscription with:
-        // name: subscriptionName.text
-        // amount: subscriptionAmount.text toDecimal
-        // user: PFUser.currentUser
-        let subscriptionNameValue = subscriptionName.text
-        let subscriptionAmountValue = subscriptionAmount.text
-        let user = PFUser.current()
-        let billingDayOfMonth = billingDatePicker.selectedRow(inComponent: 0) + 1
+        let subscription = PFObject(className: "FixedSubscription")
+        subscription["name"] = subscriptionName.text!
+        subscription["amount"] = Double(subscriptionAmount.text!)
+        subscription["user"] = PFUser.current()!
+        subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
         
-        // If creation successful:
-        navigationController?.popViewController(animated: true)
-        
-        // else display error message
+        subscription.saveInBackground { (success, error) in
+            if success {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                print("SUBSCRIPTION SAVE ERROR: \(error)")
+            }
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         billingDatePicker.delegate = self
+        billingDatePicker.dataSource = self
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
