@@ -194,6 +194,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Billing Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ubq-Jn-S3J">
+                                <rect key="frame" x="16" y="262" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xQO-Og-wew">
+                                <rect key="frame" x="0.0" y="291" width="414" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -202,12 +211,18 @@
                             <constraint firstItem="I24-L6-bBF" firstAttribute="top" secondItem="5XP-0I-JjT" secondAttribute="bottom" constant="8" id="6AK-qJ-DC5"/>
                             <constraint firstItem="5XP-0I-JjT" firstAttribute="leading" secondItem="3nI-9S-YPb" secondAttribute="leading" constant="16" id="CqQ-yE-Nul"/>
                             <constraint firstItem="3nI-9S-YPb" firstAttribute="trailing" secondItem="I24-L6-bBF" secondAttribute="trailing" constant="16" id="FIU-MV-2tt"/>
+                            <constraint firstItem="xQO-Og-wew" firstAttribute="top" secondItem="Ubq-Jn-S3J" secondAttribute="bottom" constant="8" id="IOv-aF-Jwx"/>
                             <constraint firstItem="vIL-ug-rlG" firstAttribute="leading" secondItem="3nI-9S-YPb" secondAttribute="leading" constant="16" id="P87-8Z-dcH"/>
                             <constraint firstItem="jQi-kA-8La" firstAttribute="leading" secondItem="3nI-9S-YPb" secondAttribute="leading" constant="16" id="PXI-FJ-VR4"/>
+                            <constraint firstItem="xQO-Og-wew" firstAttribute="trailing" secondItem="3nI-9S-YPb" secondAttribute="trailing" id="Q7a-0y-8uv"/>
                             <constraint firstItem="3nI-9S-YPb" firstAttribute="trailing" secondItem="vIL-ug-rlG" secondAttribute="trailing" constant="16" id="Qp2-cG-3qC"/>
                             <constraint firstItem="I24-L6-bBF" firstAttribute="leading" secondItem="3nI-9S-YPb" secondAttribute="leading" constant="16" id="Ry0-T9-F3A"/>
+                            <constraint firstItem="Ubq-Jn-S3J" firstAttribute="leading" secondItem="3nI-9S-YPb" secondAttribute="leading" constant="16" id="UdE-xt-gsE"/>
                             <constraint firstItem="jQi-kA-8La" firstAttribute="top" secondItem="vIL-ug-rlG" secondAttribute="bottom" constant="8" id="YWQ-5X-9vK"/>
+                            <constraint firstItem="Ubq-Jn-S3J" firstAttribute="top" secondItem="I24-L6-bBF" secondAttribute="bottom" constant="16" id="aYd-r3-ai0"/>
+                            <constraint firstItem="xQO-Og-wew" firstAttribute="leading" secondItem="3nI-9S-YPb" secondAttribute="leading" id="ho4-12-lcb"/>
                             <constraint firstItem="vIL-ug-rlG" firstAttribute="top" secondItem="3nI-9S-YPb" secondAttribute="top" constant="16" id="myq-6q-2UC"/>
+                            <constraint firstItem="3nI-9S-YPb" firstAttribute="trailing" secondItem="Ubq-Jn-S3J" secondAttribute="trailing" constant="16" id="qzl-dz-yK2"/>
                             <constraint firstItem="3nI-9S-YPb" firstAttribute="trailing" secondItem="jQi-kA-8La" secondAttribute="trailing" constant="16" id="vNO-Mw-4uX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3nI-9S-YPb"/>
@@ -220,6 +235,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="billingDatePicker" destination="xQO-Og-wew" id="cRO-Ry-6jz"/>
                         <outlet property="subscriptionAmount" destination="I24-L6-bBF" id="eiM-Ma-Mo8"/>
                         <outlet property="subscriptionName" destination="jQi-kA-8La" id="Rzb-vI-94O"/>
                     </connections>
@@ -270,6 +286,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Jr1-L4-Hlr"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4og-oa-FI7">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
