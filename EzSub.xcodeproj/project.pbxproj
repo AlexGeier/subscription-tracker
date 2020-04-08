@@ -16,6 +16,8 @@
 		54E134F82432AFFA00751992 /* EzSubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E134F72432AFFA00751992 /* EzSubTests.swift */; };
 		54E135032432AFFA00751992 /* EzSubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E135022432AFFA00751992 /* EzSubUITests.swift */; };
 		64C916A674A5F91AA571C700 /* Pods_EzSub_EzSubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 790FE06D3EEF1C5EC3BECA11 /* Pods_EzSub_EzSubUITests.framework */; };
+		84A3539C243E8D30009742A4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A3539B243E8D30009742A4 /* Settings.storyboard */; };
+		84A3539F243E8D47009742A4 /* Subscriptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A3539D243E8D47009742A4 /* Subscriptions.storyboard */; };
 		967BB06E66CF3E008548672A /* Pods_EzSub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7257224AF6308969534AAAE3 /* Pods_EzSub.framework */; };
 		9DB9BEE99D0FA7C81DBEE1FC /* Pods_EzSubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0650B354C714CE74EF9634 /* Pods_EzSubTests.framework */; };
 		FAA043CD243ABE9C005CCCDB /* SubscriptionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043CC243ABE9C005CCCDB /* SubscriptionListViewController.swift */; };
@@ -61,6 +63,8 @@
 		662750AD700D717DA919AB46 /* Pods-EzSub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSub.debug.xcconfig"; path = "Target Support Files/Pods-EzSub/Pods-EzSub.debug.xcconfig"; sourceTree = "<group>"; };
 		7257224AF6308969534AAAE3 /* Pods_EzSub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzSub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		790FE06D3EEF1C5EC3BECA11 /* Pods_EzSub_EzSubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzSub_EzSubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84A3539B243E8D30009742A4 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = SOURCE_ROOT; };
+		84A3539E243E8D47009742A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Subscriptions.storyboard; sourceTree = "<group>"; };
 		99D34DFC86CCE19DB184072E /* Pods-EzSub-EzSubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSub-EzSubUITests.debug.xcconfig"; path = "Target Support Files/Pods-EzSub-EzSubUITests/Pods-EzSub-EzSubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2D7CC40518845D94F9C0A4A /* Pods-EzSub-EzSubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSub-EzSubUITests.release.xcconfig"; path = "Target Support Files/Pods-EzSub-EzSubUITests/Pods-EzSub-EzSubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DD0650B354C714CE74EF9634 /* Pods_EzSubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzSubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +138,8 @@
 		54E134DF2432AFF700751992 /* EzSub */ = {
 			isa = PBXGroup;
 			children = (
+				84A3539D243E8D47009742A4 /* Subscriptions.storyboard */,
+				84A3539B243E8D30009742A4 /* Settings.storyboard */,
 				54E134E02432AFF700751992 /* AppDelegate.swift */,
 				54E134E22432AFF700751992 /* SceneDelegate.swift */,
 				54E134E42432AFF700751992 /* LoginViewController.swift */,
@@ -292,6 +298,8 @@
 				54E134ED2432AFFA00751992 /* LaunchScreen.storyboard in Resources */,
 				54E134EA2432AFFA00751992 /* Assets.xcassets in Resources */,
 				54E134E82432AFF800751992 /* Main.storyboard in Resources */,
+				84A3539C243E8D30009742A4 /* Settings.storyboard in Resources */,
+				84A3539F243E8D47009742A4 /* Subscriptions.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +483,14 @@
 				54E134EC2432AFFA00751992 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		84A3539D243E8D47009742A4 /* Subscriptions.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				84A3539E243E8D47009742A4 /* Base */,
+			);
+			name = Subscriptions.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
