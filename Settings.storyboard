@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Tr2-dN-WLi">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,11 +10,41 @@
         <!--Settings-->
         <scene sceneID="Tin-QN-wgV">
             <objects>
-                <viewController id="dPq-h1-aPm" sceneMemberID="viewController">
+                <viewController id="dPq-h1-aPm" customClass="SettingsViewController" customModule="EzSub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NlH-9v-R7W">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="49" translatesAutoresizingMaskIntoConstraints="NO" id="Rih-YF-7aP">
+                                <rect key="frame" x="114.5" y="306" width="185" height="109"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVe-KM-YXW">
+                                        <rect key="frame" x="41" y="0.0" width="103" height="30"/>
+                                        <state key="normal" title="Manage E-mail"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diX-n2-Ozk">
+                                        <rect key="frame" x="19.5" y="79" width="146" height="30"/>
+                                        <state key="normal" title="Manage Notifications"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="diX-n2-Ozk" firstAttribute="centerX" secondItem="Rih-YF-7aP" secondAttribute="centerX" id="0oX-mp-mdn"/>
+                                    <constraint firstItem="dVe-KM-YXW" firstAttribute="centerX" secondItem="Rih-YF-7aP" secondAttribute="centerX" id="ZrH-Tu-DyZ"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X3y-qi-0zi">
+                                <rect key="frame" x="177" y="782" width="60" height="30"/>
+                                <state key="normal" title="Sign Out"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="X3y-qi-0zi" firstAttribute="centerX" secondItem="NlH-9v-R7W" secondAttribute="centerX" id="0VP-mk-8z0"/>
+                            <constraint firstItem="Rih-YF-7aP" firstAttribute="top" secondItem="adK-sR-pBK" secondAttribute="top" constant="218" id="58d-Vb-lyl"/>
+                            <constraint firstItem="Rih-YF-7aP" firstAttribute="leading" secondItem="adK-sR-pBK" secondAttribute="leading" constant="114.5" id="Efe-D4-5pd"/>
+                            <constraint firstItem="Rih-YF-7aP" firstAttribute="centerX" secondItem="NlH-9v-R7W" secondAttribute="centerX" id="Tmu-1c-nvA"/>
+                            <constraint firstItem="adK-sR-pBK" firstAttribute="bottom" secondItem="X3y-qi-0zi" secondAttribute="bottom" constant="50" id="atQ-9J-5XY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="adK-sR-pBK"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="2s5-jw-CD6"/>
