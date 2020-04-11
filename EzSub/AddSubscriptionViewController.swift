@@ -9,23 +9,58 @@
 import UIKit
 import Parse
 
+enum SubscriptionType {
+    case fixed
+    case dynamic
+}
+
 class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var subscriptionName: UITextField!
     @IBOutlet weak var subscriptionAmount: UITextField!
     @IBOutlet weak var billingDatePicker: UIPickerView!
+    @IBOutlet weak var subscriptionAmountStackView: UIStackView!
+    @IBOutlet weak var subscriptionTypeSegmentedControl: UISegmentedControl!
+    
+    var subscriptionType: SubscriptionType = .fixed
+    
+    @IBAction func onSubscriptionTypeChange(_ sender: Any) {
+        if (subscriptionTypeSegmentedControl.selectedSegmentIndex == 0) {
+            subscriptionType = .fixed
+            subscriptionAmountStackView.isHidden = false
+        } else {
+            subscriptionType = .dynamic
+            subscriptionAmount.text = ""
+            subscriptionAmountStackView.isHidden = true
+        }
+    }
     
     @IBAction func createSubscription(_ sender: Any) {
-        let subscription = PFObject(className: "FixedSubscription")
-        subscription["name"] = subscriptionName.text!
-        subscription["amount"] = Double(subscriptionAmount.text!)
-        subscription["user"] = PFUser.current()!
-        subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
-        
-        subscription.saveInBackground { (success, error) in
-            if success {
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                print("SUBSCRIPTION SAVE ERROR: \(error)")
+        if (subscriptionType == .fixed) {
+            let subscription = PFObject(className: "FixedSubscription")
+            subscription["name"] = subscriptionName.text!
+            subscription["amount"] = Double(subscriptionAmount.text!)
+            subscription["user"] = PFUser.current()!
+            subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
+            
+            subscription.saveInBackground { (success, error) in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    print("SUBSCRIPTION SAVE ERROR: \(error)")
+                }
+            }
+        } else {
+            let subscription = PFObject(className: "DynamicSubscription")
+            subscription["name"] = subscriptionName.text!
+            subscription["user"] = PFUser.current()!
+            subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
+            
+            subscription.saveInBackground { (success, error) in
+                if success {
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    print("SUBSCRIPTION SAVE ERROR: \(error)")
+                }
             }
         }
     }
