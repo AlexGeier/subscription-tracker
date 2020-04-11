@@ -21,6 +21,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dVe-KM-YXW">
                                         <rect key="frame" x="41" y="0.0" width="103" height="30"/>
                                         <state key="normal" title="Manage E-mail"/>
+                                        <connections>
+                                            <segue destination="55u-bC-Znt" kind="show" id="THU-Tz-Wei"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="diX-n2-Ozk">
                                         <rect key="frame" x="19.5" y="79" width="146" height="30"/>
@@ -52,6 +55,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ffw-XY-scD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1186.9565217391305" y="900"/>
+        </scene>
+        <!--Manage Email View Controller-->
+        <scene sceneID="bTx-gd-sCo">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="55u-bC-Znt" userLabel="Manage Email View Controller" customClass="ManageEmailViewController" customModule="EzSub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zOn-T6-bV2">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P81-08-HGF" userLabel="Email">
+                                <rect key="frame" x="16" y="144" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="john_doe@foo.bar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xsc-1k-TL4" userLabel="Email">
+                                <rect key="frame" x="16" y="173" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="john_doe@foo.bar" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P30-SX-nsi" userLabel="Confirm Email">
+                                <rect key="frame" x="16" y="252" width="382" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bz5-sB-WRB" userLabel="Confirm Email">
+                                <rect key="frame" x="16" y="223" width="382" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="trailing" secondItem="bz5-sB-WRB" secondAttribute="trailing" id="7jb-25-UyN"/>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="centerX" secondItem="zOn-T6-bV2" secondAttribute="centerX" id="8zm-t2-I39"/>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="trailing" secondItem="P81-08-HGF" secondAttribute="trailing" id="AUT-Fh-JDV"/>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="leading" secondItem="bz5-sB-WRB" secondAttribute="leading" id="Dgs-IV-0jv"/>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="leading" secondItem="xsc-1k-TL4" secondAttribute="leading" id="NZj-ob-jBs"/>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="leading" secondItem="qdl-sf-EAf" secondAttribute="leading" constant="16" id="OMS-oK-6Z2"/>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="leading" secondItem="P81-08-HGF" secondAttribute="leading" id="Pcu-ad-CJ7"/>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="top" secondItem="bz5-sB-WRB" secondAttribute="bottom" constant="8" id="bLu-fH-xdO"/>
+                            <constraint firstItem="qdl-sf-EAf" firstAttribute="bottom" secondItem="P30-SX-nsi" secondAttribute="bottom" constant="576" id="igI-Pg-A7b"/>
+                            <constraint firstItem="P30-SX-nsi" firstAttribute="trailing" secondItem="xsc-1k-TL4" secondAttribute="trailing" id="jKs-PK-eoi"/>
+                            <constraint firstItem="xsc-1k-TL4" firstAttribute="top" secondItem="P81-08-HGF" secondAttribute="bottom" constant="8" id="kvd-Of-V37"/>
+                            <constraint firstItem="bz5-sB-WRB" firstAttribute="top" secondItem="xsc-1k-TL4" secondAttribute="bottom" constant="16" id="x4l-2Z-WIg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qdl-sf-EAf"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="eFT-4h-Rpe">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="Hyk-z2-FuX">
+                            <connections>
+                                <action selector="OnEmailAdd:" destination="55u-bC-Znt" id="MsU-3L-HdV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="confirmEmail" destination="P30-SX-nsi" id="AZP-rZ-8i9"/>
+                        <outlet property="email" destination="xsc-1k-TL4" id="hDG-FV-nby"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LCr-Pu-T08" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2222" y="900"/>
         </scene>
         <!--Settings-->
         <scene sceneID="iKd-WQ-4N0">
