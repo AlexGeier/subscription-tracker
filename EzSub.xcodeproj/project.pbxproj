@@ -23,7 +23,6 @@
 		FAA043CD243ABE9C005CCCDB /* SubscriptionListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043CC243ABE9C005CCCDB /* SubscriptionListViewController.swift */; };
 		FAA043CF243AC391005CCCDB /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043CE243AC391005CCCDB /* SubscriptionCell.swift */; };
 		FAA043D1243AC778005CCCDB /* AddSubscriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043D0243AC778005CCCDB /* AddSubscriptionViewController.swift */; };
-		FAA043D3243AC88A005CCCDB /* SubscriptionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA043D2243AC88A005CCCDB /* SubscriptionListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +70,6 @@
 		FAA043CC243ABE9C005CCCDB /* SubscriptionListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionListViewController.swift; sourceTree = "<group>"; };
 		FAA043CE243AC391005CCCDB /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		FAA043D0243AC778005CCCDB /* AddSubscriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSubscriptionViewController.swift; sourceTree = "<group>"; };
-		FAA043D2243AC88A005CCCDB /* SubscriptionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionListView.swift; sourceTree = "<group>"; };
 		FE95FBE4F8539D63EB16940A /* Pods-EzSubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSubTests.debug.xcconfig"; path = "Target Support Files/Pods-EzSubTests/Pods-EzSubTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,7 +148,6 @@
 				54E134EE2432AFFA00751992 /* Info.plist */,
 				FAA043CE243AC391005CCCDB /* SubscriptionCell.swift */,
 				FAA043D0243AC778005CCCDB /* AddSubscriptionViewController.swift */,
-				FAA043D2243AC88A005CCCDB /* SubscriptionListView.swift */,
 			);
 			path = EzSub;
 			sourceTree = "<group>";
@@ -427,7 +424,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA043D3243AC88A005CCCDB /* SubscriptionListView.swift in Sources */,
 				54E134E52432AFF700751992 /* LoginViewController.swift in Sources */,
 				54E134E12432AFF700751992 /* AppDelegate.swift in Sources */,
 				FAA043CF243AC391005CCCDB /* SubscriptionCell.swift in Sources */,
