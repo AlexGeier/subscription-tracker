@@ -18,6 +18,8 @@
 		64C916A674A5F91AA571C700 /* Pods_EzSub_EzSubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 790FE06D3EEF1C5EC3BECA11 /* Pods_EzSub_EzSubUITests.framework */; };
 		84A3539C243E8D30009742A4 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A3539B243E8D30009742A4 /* Settings.storyboard */; };
 		84A3539F243E8D47009742A4 /* Subscriptions.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A3539D243E8D47009742A4 /* Subscriptions.storyboard */; };
+		84BCADB32440F45B00BB10F2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCADB22440F45B00BB10F2 /* SettingsViewController.swift */; };
+		84BCADB9244245A800BB10F2 /* ManageEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BCADB8244245A800BB10F2 /* ManageEmailViewController.swift */; };
 		967BB06E66CF3E008548672A /* Pods_EzSub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7257224AF6308969534AAAE3 /* Pods_EzSub.framework */; };
 		9DB9BEE99D0FA7C81DBEE1FC /* Pods_EzSubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD0650B354C714CE74EF9634 /* Pods_EzSubTests.framework */; };
 		FA0CB82A244274B200384061 /* DynamicSubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0CB829244274B200384061 /* DynamicSubscriptionCell.swift */; };
@@ -67,6 +69,8 @@
 		790FE06D3EEF1C5EC3BECA11 /* Pods_EzSub_EzSubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzSub_EzSubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A3539B243E8D30009742A4 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = SOURCE_ROOT; };
 		84A3539E243E8D47009742A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Subscriptions.storyboard; sourceTree = "<group>"; };
+		84BCADB22440F45B00BB10F2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		84BCADB8244245A800BB10F2 /* ManageEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageEmailViewController.swift; sourceTree = "<group>"; };
 		99D34DFC86CCE19DB184072E /* Pods-EzSub-EzSubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSub-EzSubUITests.debug.xcconfig"; path = "Target Support Files/Pods-EzSub-EzSubUITests/Pods-EzSub-EzSubUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D2D7CC40518845D94F9C0A4A /* Pods-EzSub-EzSubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSub-EzSubUITests.release.xcconfig"; path = "Target Support Files/Pods-EzSub-EzSubUITests/Pods-EzSub-EzSubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DD0650B354C714CE74EF9634 /* Pods_EzSubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EzSubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +161,9 @@
 				FAA043D0243AC778005CCCDB /* AddSubscriptionViewController.swift */,
 				FA0CB82B24427D9000384061 /* FixedSubscriptionDetailViewController.swift */,
 				FA0CB82D24427DA400384061 /* DynamicSubscriptionDetailViewController.swift */,
+				FAA043D2243AC88A005CCCDB /* SubscriptionListView.swift */,
+				84BCADB22440F45B00BB10F2 /* SettingsViewController.swift */,
+				84BCADB8244245A800BB10F2 /* ManageEmailViewController.swift */,
 			);
 			path = EzSub;
 			sourceTree = "<group>";
@@ -437,11 +444,13 @@
 				54E134E12432AFF700751992 /* AppDelegate.swift in Sources */,
 				FAA043CF243AC391005CCCDB /* FixedSubscriptionCell.swift in Sources */,
 				FA0CB82E24427DA400384061 /* DynamicSubscriptionDetailViewController.swift in Sources */,
+				84BCADB9244245A800BB10F2 /* ManageEmailViewController.swift in Sources */,
 				54E134E32432AFF700751992 /* SceneDelegate.swift in Sources */,
 				FA0CB82A244274B200384061 /* DynamicSubscriptionCell.swift in Sources */,
 				FA0CB82C24427D9000384061 /* FixedSubscriptionDetailViewController.swift in Sources */,
 				FAA043CD243ABE9C005CCCDB /* SubscriptionListViewController.swift in Sources */,
 				FAA043D1243AC778005CCCDB /* AddSubscriptionViewController.swift in Sources */,
+				84BCADB32440F45B00BB10F2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
