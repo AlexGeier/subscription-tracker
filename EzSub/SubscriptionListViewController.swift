@@ -47,6 +47,7 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
         subscriptions = []
         
         let fixedQuery = PFQuery(className: "FixedSubscription")
+        fixedQuery.whereKey("user", equalTo: PFUser.current())
         
         fixedQuery.findObjectsInBackground { (fixedSubscriptions, error) in
             if (fixedSubscriptions != nil) {
@@ -54,7 +55,6 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     let name = subscription["name"]
                     let amount = subscription["amount"]
                     
-                    // TODO: Limit by subscriptions from this user
                     self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double))
                 })
                 
@@ -63,13 +63,13 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
         }
         
         let dynamicQuery = PFQuery(className: "DynamicSubscription")
+        dynamicQuery.whereKey("user", equalTo: PFUser.current())
         
         dynamicQuery.findObjectsInBackground { (dynamicSubscriptions, error) in
             if (dynamicSubscriptions != nil) {
                 dynamicSubscriptions?.forEach({ (subscription) in
                     let name = subscription["name"]
                     
-                    // TODO: Limit by subscriptions from this user
                     self.subscriptions.append(DynamicSubscription(name: name as! String))
                 })
             }
