@@ -13,18 +13,21 @@ protocol Subscription {
     var type: SubscriptionType { get }
     var name: String { get }
     var amount: Double { get }
+    var billingDay: Int { get }
 }
 
 struct FixedSubscription: Subscription {
     let type: SubscriptionType = .fixed
     let name: String
     let amount: Double
+    let billingDay: Int
 }
 
 struct DynamicSubscription: Subscription {
     let type: SubscriptionType = .dynamic
     let amount: Double = 0
     let name: String
+    let billingDay: Int
 }
 
 class SubscriptionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -59,8 +62,9 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                 fixedSubscriptions?.forEach({ (subscription) in
                     let name = subscription["name"]
                     let amount = subscription["amount"]
+                    let billingDay = subscription["billingDay"]
                     
-                    self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double))
+                    self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double, billingDay: billingDay as! Int))
                 })
                 
                 group.leave()
@@ -74,8 +78,9 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
             if (dynamicSubscriptions != nil) {
                 dynamicSubscriptions?.forEach({ (subscription) in
                     let name = subscription["name"]
+                    let billingDay = subscription["billingDay"]
                     
-                    self.subscriptions.append(DynamicSubscription(name: name as! String))
+                    self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int))
                 })
             }
             
@@ -83,6 +88,12 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
         }
         
         group.notify(queue: .main) {
+            self.subscriptions.sort { (sub1, sub2) -> Bool in
+                if (sub1.billingDay == sub2.billingDay) {
+                    return sub1.name < sub2.name
+                }
+                return sub1.billingDay < sub2.billingDay
+            }
             self.subscriptionListTableView.reloadData()
         }
     }
