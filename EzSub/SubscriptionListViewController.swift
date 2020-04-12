@@ -46,6 +46,11 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
         
         subscriptions = []
         
+        let group = DispatchGroup()
+
+        group.enter()
+        group.enter()
+        
         let fixedQuery = PFQuery(className: "FixedSubscription")
         fixedQuery.whereKey("user", equalTo: PFUser.current())
         
@@ -58,7 +63,7 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double))
                 })
                 
-                self.subscriptionListTableView.reloadData()
+                group.leave()
             }
         }
         
@@ -74,6 +79,10 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                 })
             }
             
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
             self.subscriptionListTableView.reloadData()
         }
     }
