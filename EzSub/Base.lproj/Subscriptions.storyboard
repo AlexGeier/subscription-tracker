@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZvO-Er-LFm" customClass="SubscriptionCell" customModule="EzSub" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fixed" id="ZvO-Er-LFm" customClass="FixedSubscriptionCell" customModule="EzSub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZvO-Er-LFm" id="ggw-c1-EbG">
@@ -56,6 +56,31 @@
                                             <outlet property="subscriptionName" destination="YYr-5g-sU2" id="NJD-WQ-drd"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dynamic" id="mZP-WC-iPS" customClass="DynamicSubscriptionCell" customModule="EzSub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="65" width="414" height="37"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZP-WC-iPS" id="0YZ-4h-kxY">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-Jb-qgj">
+                                                    <rect key="frame" x="16" y="8" width="382" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="x7H-Jb-qgj" secondAttribute="trailing" constant="16" id="QNU-HW-UUA"/>
+                                                <constraint firstAttribute="bottom" secondItem="x7H-Jb-qgj" secondAttribute="bottom" constant="8" id="fo2-M6-BNV"/>
+                                                <constraint firstItem="x7H-Jb-qgj" firstAttribute="leading" secondItem="0YZ-4h-kxY" secondAttribute="leading" constant="16" id="lcw-n2-6Ws"/>
+                                                <constraint firstItem="x7H-Jb-qgj" firstAttribute="top" secondItem="0YZ-4h-kxY" secondAttribute="top" constant="8" id="xZC-KN-4hZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="subscriptionName" destination="x7H-Jb-qgj" id="Mlp-OL-cXf"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
@@ -75,10 +100,47 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="subscriptionListTableView" destination="TX6-z7-TRd" id="9Vo-Ay-UP3"/>
+                        <segue destination="asQ-Ir-amu" kind="show" identifier="fixedSubscriptionDetail" id="KHe-Wl-wqJ"/>
+                        <segue destination="kQh-YC-0yP" kind="show" identifier="dynamicSubscriptionDetail" id="Hq7-sY-Cbr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7n-qF-5u7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2097.1014492753625" y="120.53571428571428"/>
+        </scene>
+        <!--Fixed Subscription Detail View Controller-->
+        <scene sceneID="MMl-fi-Iqd">
+            <objects>
+                <viewController id="asQ-Ir-amu" customClass="FixedSubscriptionDetailViewController" customModule="EzSub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pph-Ej-9UY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="3x1-po-TWg"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dms-ob-UHW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eV6-IN-dE9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="855"/>
+        </scene>
+        <!--Dynamic Subscription Detail View Controller-->
+        <scene sceneID="44c-JZ-TH3">
+            <objects>
+                <viewController id="kQh-YC-0yP" customClass="DynamicSubscriptionDetailViewController" customModule="EzSub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8tc-iA-3aY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="VC6-Py-DQc"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mdF-zW-ZgN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aZY-KI-tSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2594" y="854"/>
         </scene>
         <!--Add a Subscription-->
         <scene sceneID="Nbm-Rv-EBM">

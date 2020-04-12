@@ -1,5 +1,5 @@
 //
-//  SubscriptionCell.swift
+//  FixedSubscriptionCell.swift
 //  EzSub
 //
 //  Created by Alex Geier on 4/5/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SubscriptionCell: UITableViewCell {
+class FixedSubscriptionCell: UITableViewCell {
     @IBOutlet weak var subscriptionName: UILabel!
     @IBOutlet weak var subscriptionAmount: UILabel!
 }
