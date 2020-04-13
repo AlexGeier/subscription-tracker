@@ -55,21 +55,21 @@ Allows users to keep track of and manage all of their monthly subscriptions and 
    * (finished) As a user, I should be able to sign in to my account
 * Register page
    * (finished) As a user, I should be able to create an account
-   * As a user, I should be able to add an email address to my account
+   * (finished) As a user, I should be able to add an email address to my account
 * Subscription List Page
-    * As a user, I should be able to see a list of my subscriptions
+    * (finished) As a user, I should be able to see a list of my subscriptions
     * As a user, I should be able to see when each subscription payment is due
     * As a user, I should be able to see how much money is due for each payment
     * As a user, I should be able to delete a subscription from the app
-    * As a user, I should be able to see the total amount of money I pay each month
+    * (finished) As a user, I should be able to see the total amount of money I pay each month
 * Subscription Detail Page
-    * As a user, I should be able to see the total amount I've spent on a susbscription
+    * (finished) As a user, I should be able to see the total amount I've spent on a susbscription
     * As a user, I should be able to see the average amount I've spent on dynamic susbscriptions
 * Add a subscription page
-    * As a user, I should have the option to add a subscription with a dynamic monthly payment
-    * As a user, I should have the option to create a subscription with a fixed monthly payment
+    * (finished) As a user, I should have the option to add a subscription with a dynamic monthly payment
+    * (finished) As a user, I should have the option to create a subscription with a fixed monthly payment
 * Settings Page
-    * As a user, I should be able to sign out of my account
+    * (finished) As a user, I should be able to sign out of my account
     * As a user, I should be notified before a subscription payment is due
     * As a user, I should be able to toggle notifications on and off
 
