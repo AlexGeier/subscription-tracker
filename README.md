@@ -152,4 +152,12 @@ We're still debating on which network to use, either Firebase or Parse. Our grou
    - Settings Page
       - (CREATE/POST) Add a new email to scan subscriptions from
       - (DELETE) No longer scan subscriptions from an email account
+      
+      
+      
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories in Sprint 2:
+
+<img src='http://g.recordit.co/wfyeKhIOr0.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
    
