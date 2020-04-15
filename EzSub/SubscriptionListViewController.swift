@@ -14,6 +14,7 @@ protocol Subscription {
     var name: String { get }
     var amount: Double { get }
     var billingDay: Int { get }
+    var id: String { get }
 }
 
 struct FixedSubscription: Subscription {
@@ -21,6 +22,7 @@ struct FixedSubscription: Subscription {
     let name: String
     let amount: Double
     let billingDay: Int
+    let id: String
 }
 
 struct DynamicSubscription: Subscription {
@@ -28,6 +30,7 @@ struct DynamicSubscription: Subscription {
     let amount: Double = 0
     let name: String
     let billingDay: Int
+    let id: String
 }
 
 class SubscriptionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -40,6 +43,8 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
     let dynamicSubscriptionCellId = "dynamic"
     
     var subscriptions: [Subscription] = []
+    
+    var parseObjects: [String: PFObject] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +59,7 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
         var total:Float = 0
         
         let group = DispatchGroup()
-
+        
         group.enter()
         group.enter()
         
@@ -68,13 +73,12 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     let amount = subscription["amount"]
                     let billingDay = subscription["billingDay"]
                     let amount_f = (amount as? NSNumber)?.floatValue ?? 0
-                    print ("amount_f")
-                    print(amount_f)
-                    print(total)
+                    
                     total = total + amount_f
-                   
+                    
                     self.totalAmountLabel.text = String(format: "$%.2f", total)
-                    self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double, billingDay: billingDay as! Int))
+                    self.parseObjects[subscription.objectId!] = subscription
+                    self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double, billingDay: billingDay as! Int, id: subscription.objectId!))
                 })
                 
                 group.leave()
@@ -90,7 +94,7 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     let name = subscription["name"]
                     let billingDay = subscription["billingDay"]
                     
-                    self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int))
+                    self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int, id: subscription.objectId!))
                 })
             }
             
@@ -137,6 +141,15 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
             performSegue(withIdentifier: "fixedSubscriptionDetail", sender: subscription)
         } else {
             performSegue(withIdentifier: "dynamicSubscriptionDetail", sender: subscription)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            parseObjects[subscriptions[indexPath.row].id]?.deleteInBackground()
+            subscriptions.remove(at: indexPath.row)
+            
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
     
