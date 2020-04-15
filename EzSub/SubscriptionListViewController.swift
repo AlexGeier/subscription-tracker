@@ -147,7 +147,13 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
             parseObjects[subscriptions[indexPath.row].id]?.deleteInBackground()
+            let amount = subscriptions[indexPath.row].amount
             subscriptions.remove(at: indexPath.row)
+            var totalAmount = Double(totalAmountLabel.text!.replacingOccurrences(of: "$", with: ""))
+            totalAmount! -= amount
+            
+            totalAmountLabel.text = String(format: "$%.2f", totalAmount!)
+            
             
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
