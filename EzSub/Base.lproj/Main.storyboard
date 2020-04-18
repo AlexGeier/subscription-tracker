@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="lxv-1C-m3N">
             <objects>
-                <viewController id="DJB-qj-8RD" customClass="LoginViewController" customModule="EzSub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="DJB-qj-8RD" customClass="LoginViewController" customModule="EzSub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NjN-1g-th0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
