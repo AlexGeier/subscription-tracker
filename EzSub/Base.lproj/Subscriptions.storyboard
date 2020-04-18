@@ -18,9 +18,36 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TX6-z7-TRd">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <stackView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="PHU-n5-OrS">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount Due:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF3-TW-I0B">
+                                            <rect key="frame" x="0.0" y="0.0" width="354" height="44"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0c-pe-q7s">
+                                            <rect key="frame" x="354" y="0.0" width="60" height="44"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="hKT-ok-u0t"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="i0c-pe-q7s" firstAttribute="top" secondItem="PHU-n5-OrS" secondAttribute="top" constant="5" id="BFY-sT-KjM"/>
+                                        <constraint firstAttribute="trailing" secondItem="i0c-pe-q7s" secondAttribute="trailing" constant="5" id="KCq-bk-16L"/>
+                                        <constraint firstItem="JF3-TW-I0B" firstAttribute="leading" secondItem="PHU-n5-OrS" secondAttribute="leading" constant="5" id="RKU-Yg-tsy"/>
+                                        <constraint firstItem="JF3-TW-I0B" firstAttribute="top" secondItem="PHU-n5-OrS" secondAttribute="top" constant="5" id="Zod-s7-1gL"/>
+                                    </constraints>
+                                </stackView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fixed" id="ZvO-Er-LFm" customClass="FixedSubscriptionCell" customModule="EzSub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZvO-Er-LFm" id="ggw-c1-EbG">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
@@ -57,7 +84,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dynamic" id="mZP-WC-iPS" customClass="DynamicSubscriptionCell" customModule="EzSub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="65" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="109" width="414" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZP-WC-iPS" id="0YZ-4h-kxY">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
@@ -102,6 +129,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="subscriptionListTableView" destination="TX6-z7-TRd" id="9Vo-Ay-UP3"/>
+                        <outlet property="totalAmountLabel" destination="i0c-pe-q7s" id="wiB-xR-N6A"/>
                         <segue destination="asQ-Ir-amu" kind="show" identifier="fixedSubscriptionDetail" id="KHe-Wl-wqJ"/>
                         <segue destination="kQh-YC-0yP" kind="show" identifier="dynamicSubscriptionDetail" id="Hq7-sY-Cbr"/>
                     </connections>

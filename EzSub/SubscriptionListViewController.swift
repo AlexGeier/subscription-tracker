@@ -33,6 +33,9 @@ struct DynamicSubscription: Subscription {
 class SubscriptionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var subscriptionListTableView: UITableView!
     
+    @IBOutlet weak var totalAmountLabel: UILabel!
+    
+    
     let fixedSubscriptionCellId = "fixed"
     let dynamicSubscriptionCellId = "dynamic"
     
@@ -48,6 +51,7 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
         super.viewDidAppear(animated)
         
         subscriptions = []
+        var total:Float = 0
         
         let group = DispatchGroup()
 
@@ -63,7 +67,13 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     let name = subscription["name"]
                     let amount = subscription["amount"]
                     let billingDay = subscription["billingDay"]
-                    
+                    let amount_f = (amount as? NSNumber)?.floatValue ?? 0
+                    print ("amount_f")
+                    print(amount_f)
+                    print(total)
+                    total = total + amount_f
+                   
+                    self.totalAmountLabel.text = String(format: "$%.2f", total)
                     self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double, billingDay: billingDay as! Int))
                 })
                 
@@ -87,6 +97,7 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
             group.leave()
         }
         
+        
         group.notify(queue: .main) {
             self.subscriptions.sort { (sub1, sub2) -> Bool in
                 if (sub1.billingDay == sub2.billingDay) {
@@ -96,6 +107,8 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
             }
             self.subscriptionListTableView.reloadData()
         }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
