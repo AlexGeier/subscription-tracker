@@ -145,14 +145,30 @@
                     <view key="view" contentMode="scaleToFill" id="pph-Ej-9UY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QP-Jo-RmB">
+                                <rect key="frame" x="128.5" y="786" width="157" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Delete subscription">
+                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDeleteSubscription:" destination="asQ-Ir-amu" eventType="touchUpInside" id="WHE-Hn-3ZV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="3x1-po-TWg" firstAttribute="bottom" secondItem="6QP-Jo-RmB" secondAttribute="bottom" constant="42" id="Eos-G0-Lmm"/>
+                            <constraint firstItem="6QP-Jo-RmB" firstAttribute="centerX" secondItem="pph-Ej-9UY" secondAttribute="centerX" id="Jl3-Ny-Fj5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3x1-po-TWg"/>
                     </view>
                     <navigationItem key="navigationItem" id="dms-ob-UHW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eV6-IN-dE9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1586" y="855"/>
+            <point key="canvasLocation" x="1585.5072463768117" y="854.46428571428567"/>
         </scene>
         <!--Dynamic Subscription Detail View Controller-->
         <scene sceneID="44c-JZ-TH3">
@@ -161,14 +177,30 @@
                     <view key="view" contentMode="scaleToFill" id="8tc-iA-3aY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIb-Ug-Qce">
+                                <rect key="frame" x="128.5" y="786" width="157" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="Delete subscription">
+                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onDeleteSubscription:" destination="kQh-YC-0yP" eventType="touchUpInside" id="pbH-rC-s2R"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DIb-Ug-Qce" firstAttribute="centerX" secondItem="8tc-iA-3aY" secondAttribute="centerX" id="bap-AE-rYZ"/>
+                            <constraint firstItem="VC6-Py-DQc" firstAttribute="bottom" secondItem="DIb-Ug-Qce" secondAttribute="bottom" constant="42" id="dck-vV-dvh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="VC6-Py-DQc"/>
                     </view>
                     <navigationItem key="navigationItem" id="mdF-zW-ZgN"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZY-KI-tSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2594" y="854"/>
+            <point key="canvasLocation" x="2592.753623188406" y="853.79464285714278"/>
         </scene>
         <!--Add a Subscription-->
         <scene sceneID="Nbm-Rv-EBM">
