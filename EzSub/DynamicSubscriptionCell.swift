@@ -10,5 +10,6 @@ import UIKit
 
 class DynamicSubscriptionCell: UITableViewCell {
     @IBOutlet weak var subscriptionName: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
 }
 

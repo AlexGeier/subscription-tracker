@@ -121,15 +121,41 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let subscription = subscriptions[indexPath.row]
+        
+        let calendar = Calendar.current
+        let date = Date()
+        let dayOfMonth = calendar.component(.day, from: date)
+        
+        let daysDueIn = subscription.billingDay - dayOfMonth
+        
         if (subscription.type == .fixed) {
             let cell = subscriptionListTableView.dequeueReusableCell(withIdentifier: fixedSubscriptionCellId) as! FixedSubscriptionCell
             cell.subscriptionName.text = subscription.name
             cell.subscriptionAmount.text = "$\(subscription.amount)"
+            if (daysDueIn < 0) {
+                cell.dueDateLabel.text = "Past due"
+            } else if (daysDueIn == 0) {
+                cell.dueDateLabel.text = "Today"
+            } else if (daysDueIn == 1){
+                cell.dueDateLabel.text = "\(daysDueIn) day"
+            } else {
+                cell.dueDateLabel.text = "\(daysDueIn) days"
+            }
             
             return cell
         } else {
             let cell = subscriptionListTableView.dequeueReusableCell(withIdentifier: dynamicSubscriptionCellId) as! DynamicSubscriptionCell
             cell.subscriptionName.text = subscription.name
+            
+            if (daysDueIn < 0) {
+                cell.dueDateLabel.text = "Past due"
+            } else if (daysDueIn == 0) {
+                cell.dueDateLabel.text = "Today"
+            } else if (daysDueIn == 1){
+                cell.dueDateLabel.text = "\(daysDueIn) day"
+            } else {
+                cell.dueDateLabel.text = "\(daysDueIn) days"
+            }
             
             return cell
         }

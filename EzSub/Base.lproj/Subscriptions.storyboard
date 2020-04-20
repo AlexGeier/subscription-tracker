@@ -32,9 +32,9 @@
                                                         <constraint firstAttribute="width" constant="16" id="IBM-Ux-TwO"/>
                                                     </constraints>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount Due:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF3-TW-I0B">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JF3-TW-I0B">
                                                     <rect key="frame" x="16" y="0.0" width="191" height="44"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -62,23 +62,34 @@
                                 </stackView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="fixed" id="ZvO-Er-LFm" customClass="FixedSubscriptionCell" customModule="EzSub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="79.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZvO-Er-LFm" id="ggw-c1-EbG">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="57K-LA-tK0">
-                                                    <rect key="frame" x="16" y="8" width="382" height="21"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="57K-LA-tK0">
+                                                    <rect key="frame" x="16" y="8" width="382" height="63.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-5g-sU2">
-                                                            <rect key="frame" x="0.0" y="0.0" width="191" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Amount" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtV-bv-ZEr">
-                                                            <rect key="frame" x="191" y="0.0" width="191" height="21"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7OF-WL-XZL">
+                                                            <rect key="frame" x="0.0" y="0.0" width="302.5" height="63.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYr-5g-sU2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="302.5" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Amount" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtV-bv-ZEr">
+                                                                    <rect key="frame" x="0.0" y="36" width="302.5" height="27.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X days" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5FX-Em-ntq">
+                                                            <rect key="frame" x="302.5" y="0.0" width="79.5" height="63.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -94,32 +105,56 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dueDateLabel" destination="5FX-Em-ntq" id="ihX-YY-n3h"/>
                                             <outlet property="subscriptionAmount" destination="jtV-bv-ZEr" id="YTu-LJ-cZ0"/>
                                             <outlet property="subscriptionName" destination="YYr-5g-sU2" id="NJD-WQ-drd"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="dynamic" id="mZP-WC-iPS" customClass="DynamicSubscriptionCell" customModule="EzSub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="109" width="414" height="37"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="414" height="79.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mZP-WC-iPS" id="0YZ-4h-kxY">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-Jb-qgj">
-                                                    <rect key="frame" x="16" y="8" width="382" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="KLA-A8-fN0">
+                                                    <rect key="frame" x="16" y="8" width="382" height="63.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="4R5-i0-NzB">
+                                                            <rect key="frame" x="0.0" y="0.0" width="302.5" height="63.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-Jb-qgj">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="302.5" height="28"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="23"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TBD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ya-PE-epq">
+                                                                    <rect key="frame" x="0.0" y="36" width="302.5" height="27.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X days" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aj5-EO-tJh">
+                                                            <rect key="frame" x="302.5" y="0.0" width="79.5" height="63.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="x7H-Jb-qgj" secondAttribute="trailing" constant="16" id="QNU-HW-UUA"/>
-                                                <constraint firstAttribute="bottom" secondItem="x7H-Jb-qgj" secondAttribute="bottom" constant="8" id="fo2-M6-BNV"/>
-                                                <constraint firstItem="x7H-Jb-qgj" firstAttribute="leading" secondItem="0YZ-4h-kxY" secondAttribute="leading" constant="16" id="lcw-n2-6Ws"/>
-                                                <constraint firstItem="x7H-Jb-qgj" firstAttribute="top" secondItem="0YZ-4h-kxY" secondAttribute="top" constant="8" id="xZC-KN-4hZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="KLA-A8-fN0" secondAttribute="trailing" constant="16" id="0SW-jt-Bts"/>
+                                                <constraint firstItem="KLA-A8-fN0" firstAttribute="top" secondItem="0YZ-4h-kxY" secondAttribute="top" constant="8" id="WKz-1Z-8fU"/>
+                                                <constraint firstAttribute="bottom" secondItem="KLA-A8-fN0" secondAttribute="bottom" constant="8" id="azr-Tj-C9V"/>
+                                                <constraint firstItem="KLA-A8-fN0" firstAttribute="leading" secondItem="0YZ-4h-kxY" secondAttribute="leading" constant="16" id="jZ1-VA-Wvb"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="dueDateLabel" destination="aj5-EO-tJh" id="2hf-ox-fAG"/>
                                             <outlet property="subscriptionName" destination="x7H-Jb-qgj" id="Mlp-OL-cXf"/>
                                         </connections>
                                     </tableViewCell>

@@ -11,4 +11,5 @@ import UIKit
 class FixedSubscriptionCell: UITableViewCell {
     @IBOutlet weak var subscriptionName: UILabel!
     @IBOutlet weak var subscriptionAmount: UILabel!
+    @IBOutlet weak var dueDateLabel: UILabel!
 }
