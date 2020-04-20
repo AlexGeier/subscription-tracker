@@ -9,4 +9,19 @@
 import UIKit
 
 class FixedSubscriptionDetailViewController: UIViewController {
+    
+    @IBAction func onDeleteSubscription(_ sender: Any) {
+        var flag = 0// yes or no flag
+        let alert = UIAlertController(title: "Alert", message: "Are you sure?", preferredStyle: .alert)
+        //TODO!!
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: {
+            (action: UIAlertAction!) in
+            flag = 1
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
 }
