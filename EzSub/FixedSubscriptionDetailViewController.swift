@@ -7,8 +7,30 @@
 //
 
 import UIKit
+import Parse
 
 class FixedSubscriptionDetailViewController: UIViewController {
+    var subscription: FixedSubscription?
+    
+    @IBOutlet weak var amountLabel: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        amountLabel.text = String(format: "$%.2f", subscription?.amount ?? 0)
+    }
+    
+    @IBAction func onPaySubscriptionPressed(_ sender: Any) {
+        var query = PFQuery(className: "FixedSubscription")
+
+        query.getObjectInBackground(withId: (subscription?.id)!) { (object, error) in
+            object?["payedThisMonth"] = true
+
+            object?.saveInBackground(block: { (result, error) in
+                self.navigationController?.popViewController(animated: true)
+            })
+           
+        }
+    }
     
     @IBAction func onDeleteSubscription(_ sender: Any) {
         var flag = 0// yes or no flag

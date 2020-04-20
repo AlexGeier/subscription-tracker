@@ -15,6 +15,7 @@ protocol Subscription {
     var amount: Double { get }
     var billingDay: Int { get }
     var id: String { get }
+    var payedThisMonth: Bool { get set }
 }
 
 struct FixedSubscription: Subscription {
@@ -23,6 +24,7 @@ struct FixedSubscription: Subscription {
     let amount: Double
     let billingDay: Int
     let id: String
+    var payedThisMonth: Bool
 }
 
 struct DynamicSubscription: Subscription {
@@ -31,6 +33,7 @@ struct DynamicSubscription: Subscription {
     let name: String
     let billingDay: Int
     let id: String
+    var payedThisMonth: Bool
 }
 
 class SubscriptionListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -73,12 +76,17 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     let amount = subscription["amount"]
                     let billingDay = subscription["billingDay"]
                     let amount_f = (amount as? NSNumber)?.floatValue ?? 0
+                    let payedThisMonth = subscription["payedThisMonth"]
                     
-                    total = total + amount_f
+                    if (!(payedThisMonth as! Bool)) {
+                        self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double, billingDay: billingDay as! Int, id: subscription.objectId!, payedThisMonth: payedThisMonth as! Bool))
+                        
+                        total = total + amount_f
+
+                        self.parseObjects[subscription.objectId!] = subscription
+                    }
                     
                     self.totalAmountLabel.text = String(format: "$%.2f", total)
-                    self.parseObjects[subscription.objectId!] = subscription
-                    self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double, billingDay: billingDay as! Int, id: subscription.objectId!))
                 })
                 
                 group.leave()
@@ -93,8 +101,16 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                 dynamicSubscriptions?.forEach({ (subscription) in
                     let name = subscription["name"]
                     let billingDay = subscription["billingDay"]
+                    let payedThisMonth = subscription["payedThisMonth"]
                     
-                    self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int, id: subscription.objectId!))
+                    if (!(payedThisMonth as! Bool)) {
+                        self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int, id: subscription.objectId!, payedThisMonth: payedThisMonth as! Bool))
+                        
+                        self.parseObjects[subscription.objectId!] = subscription
+                    }
+
+                    
+
                 })
             }
             
@@ -180,7 +196,6 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
             
             totalAmountLabel.text = String(format: "$%.2f", totalAmount!)
             
-            
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
     }
@@ -188,13 +203,21 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "fixedSubscriptionDetail") {
             if let vc: FixedSubscriptionDetailViewController = segue.destination as? FixedSubscriptionDetailViewController {
-                // TODO: sender is nil, so navigation bar title isn't being set
-                vc.navigationItem.title = (sender as? Subscription)?.name
+                
+                let subscription = sender as? FixedSubscription
+                if subscription != nil {
+                    vc.navigationItem.title = subscription?.name
+                    vc.subscription = subscription
+                }
             }
         } else if (segue.identifier == "dynamicSubscriptionDetail") {
             if let vc: DynamicSubscriptionDetailViewController = segue.destination as? DynamicSubscriptionDetailViewController {
-                // TODO: sender is nil, so navigation bar title isn't being set
-                vc.navigationItem.title = (sender as? Subscription)?.name
+                
+                let subscription = sender as? DynamicSubscription
+                if subscription != nil {
+                    vc.navigationItem.title = subscription?.name
+                    vc.subscription = subscription
+                }
             }
         }
     }

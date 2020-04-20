@@ -7,8 +7,21 @@
 //
 
 import UIKit
+import Parse
 
 class DynamicSubscriptionDetailViewController: UIViewController {
+    var subscription: DynamicSubscription?
+
+    @IBAction func onPaySubscriptionPressed(_ sender: Any) {
+        var query = PFQuery(className: "DynamicSubscription")
+
+        query.getObjectInBackground(withId: (subscription?.id)!) { (object, error) in
+            object?["payedThisMonth"] = true
+            object?.saveInBackground()
+        }
+        
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func onDeleteSubscription(_ sender: Any) {
         var flag = 0// yes or no flag

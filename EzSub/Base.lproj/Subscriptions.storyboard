@@ -206,15 +206,40 @@
                                     <action selector="onDeleteSubscription:" destination="asQ-Ir-amu" eventType="touchUpInside" id="WHE-Hn-3ZV"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="UoG-e1-vPH">
+                                <rect key="frame" x="16" y="393" width="382" height="164"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$XXX.XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rSC-yS-3gj">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yl-af-QbQ">
+                                        <rect key="frame" x="0.0" y="92" width="382" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="Payed!"/>
+                                        <connections>
+                                            <action selector="onPaySubscriptionPressed:" destination="asQ-Ir-amu" eventType="touchUpInside" id="VGT-iv-L4O"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="UoG-e1-vPH" firstAttribute="centerY" secondItem="3x1-po-TWg" secondAttribute="centerY" id="1ch-Mo-IYt"/>
+                            <constraint firstItem="UoG-e1-vPH" firstAttribute="leading" secondItem="3x1-po-TWg" secondAttribute="leading" constant="16" id="9QD-Gv-BO6"/>
                             <constraint firstItem="3x1-po-TWg" firstAttribute="bottom" secondItem="6QP-Jo-RmB" secondAttribute="bottom" constant="42" id="Eos-G0-Lmm"/>
                             <constraint firstItem="6QP-Jo-RmB" firstAttribute="centerX" secondItem="pph-Ej-9UY" secondAttribute="centerX" id="Jl3-Ny-Fj5"/>
+                            <constraint firstItem="3x1-po-TWg" firstAttribute="trailing" secondItem="UoG-e1-vPH" secondAttribute="trailing" constant="16" id="LtI-XH-0aI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3x1-po-TWg"/>
                     </view>
                     <navigationItem key="navigationItem" id="dms-ob-UHW"/>
+                    <connections>
+                        <outlet property="amountLabel" destination="rSC-yS-3gj" id="BeE-1y-sX4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eV6-IN-dE9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -238,9 +263,19 @@
                                     <action selector="onDeleteSubscription:" destination="kQh-YC-0yP" eventType="touchUpInside" id="pbH-rC-s2R"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTw-Fu-6D6">
+                                <rect key="frame" x="134.5" y="439" width="145" height="72"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <state key="normal" title="Payed!"/>
+                                <connections>
+                                    <action selector="onPaySubscriptionPressed:" destination="kQh-YC-0yP" eventType="touchUpInside" id="pIU-le-KMB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="OTw-Fu-6D6" firstAttribute="centerY" secondItem="VC6-Py-DQc" secondAttribute="centerY" id="0Kz-bT-DEl"/>
+                            <constraint firstItem="OTw-Fu-6D6" firstAttribute="centerX" secondItem="VC6-Py-DQc" secondAttribute="centerX" id="Rf6-EW-fE4"/>
                             <constraint firstItem="DIb-Ug-Qce" firstAttribute="centerX" secondItem="8tc-iA-3aY" secondAttribute="centerX" id="bap-AE-rYZ"/>
                             <constraint firstItem="VC6-Py-DQc" firstAttribute="bottom" secondItem="DIb-Ug-Qce" secondAttribute="bottom" constant="42" id="dck-vV-dvh"/>
                         </constraints>
