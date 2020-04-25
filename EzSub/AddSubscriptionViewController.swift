@@ -41,6 +41,7 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             subscription["amount"] = Double(subscriptionAmount.text!)
             subscription["user"] = PFUser.current()!
             subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
+            subscription["payedThisMonth"] = false
             
             subscription.saveInBackground { (success, error) in
                 if success {
@@ -54,6 +55,7 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             subscription["name"] = subscriptionName.text!
             subscription["user"] = PFUser.current()!
             subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
+            subscription["payedThisMonth"] = false
             
             subscription.saveInBackground { (success, error) in
                 if success {

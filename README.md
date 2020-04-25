@@ -158,7 +158,7 @@ We're still debating on which network to use, either Firebase or Parse. Our grou
       
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories in Sprint 2:
+Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/wfyeKhIOr0.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
    
