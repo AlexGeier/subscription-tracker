@@ -8,11 +8,14 @@
 
 import UIKit
 import Parse
+import UserNotifications
 
 enum SubscriptionType {
     case fixed
     case dynamic
 }
+
+
 
 class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var subscriptionName: UITextField!
@@ -22,6 +25,9 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
     @IBOutlet weak var subscriptionTypeSegmentedControl: UISegmentedControl!
     
     var subscriptionType: SubscriptionType = .fixed
+    
+    
+    
     
     @IBAction func onSubscriptionTypeChange(_ sender: Any) {
         if (subscriptionTypeSegmentedControl.selectedSegmentIndex == 0) {
@@ -42,6 +48,15 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             subscription["user"] = PFUser.current()!
             subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
             subscription["payedThisMonth"] = false
+            subscription["notification"] = true
+        
+            let manager = LocalNotificationManager()
+            
+            manager.notifications = [
+                Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30))]
+            manager.schedule()
+            
+            
             
             subscription.saveInBackground { (success, error) in
                 if success {
@@ -56,6 +71,13 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             subscription["user"] = PFUser.current()!
             subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
             subscription["payedThisMonth"] = false
+            subscription["notification"] = true
+            
+            let manager = LocalNotificationManager()
+            
+            manager.notifications = [
+                Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30))]
+            manager.schedule()
             
             subscription.saveInBackground { (success, error) in
                 if success {
