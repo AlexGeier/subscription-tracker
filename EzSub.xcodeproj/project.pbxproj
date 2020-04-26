@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54172312245536E10074F5D0 /* ManageNotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54172311245536E10074F5D0 /* ManageNotificationViewController.swift */; };
 		54E134E12432AFF700751992 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E134E02432AFF700751992 /* AppDelegate.swift */; };
 		54E134E32432AFF700751992 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E134E22432AFF700751992 /* SceneDelegate.swift */; };
 		54E134E52432AFF700751992 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54E134E42432AFF700751992 /* LoginViewController.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		2CE5C2CF917E6D32F0345D8A /* Pods-EzSubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSubTests.release.xcconfig"; path = "Target Support Files/Pods-EzSubTests/Pods-EzSubTests.release.xcconfig"; sourceTree = "<group>"; };
+		54172311245536E10074F5D0 /* ManageNotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageNotificationViewController.swift; sourceTree = "<group>"; };
 		5420D8D3DFCFABDE61F1323E /* Pods-EzSub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EzSub.release.xcconfig"; path = "Target Support Files/Pods-EzSub/Pods-EzSub.release.xcconfig"; sourceTree = "<group>"; };
 		54E134DD2432AFF700751992 /* EzSub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EzSub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54E134E02432AFF700751992 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,9 +163,9 @@
 				FAA043D0243AC778005CCCDB /* AddSubscriptionViewController.swift */,
 				FA0CB82B24427D9000384061 /* FixedSubscriptionDetailViewController.swift */,
 				FA0CB82D24427DA400384061 /* DynamicSubscriptionDetailViewController.swift */,
-				FAA043D2243AC88A005CCCDB /* SubscriptionListView.swift */,
 				84BCADB22440F45B00BB10F2 /* SettingsViewController.swift */,
 				84BCADB8244245A800BB10F2 /* ManageEmailViewController.swift */,
+				54172311245536E10074F5D0 /* ManageNotificationViewController.swift */,
 			);
 			path = EzSub;
 			sourceTree = "<group>";
@@ -440,6 +442,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				54172312245536E10074F5D0 /* ManageNotificationViewController.swift in Sources */,
 				54E134E52432AFF700751992 /* LoginViewController.swift in Sources */,
 				54E134E12432AFF700751992 /* AppDelegate.swift in Sources */,
 				FAA043CF243AC391005CCCDB /* FixedSubscriptionCell.swift in Sources */,

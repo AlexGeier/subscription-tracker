@@ -8,10 +8,80 @@
 
 import UIKit
 import Parse
+import UserNotifications
 
 enum SubscriptionType {
     case fixed
     case dynamic
+}
+
+struct Notification {
+    var id:String
+    var title:String
+    var datetime:DateComponents
+}
+
+
+class LocalNotificationManager
+{
+    var notifications = [Notification]()
+    
+    func listScheduledNotifications()
+    {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { notifications in
+
+            for notification in notifications {
+                print(notification)
+            }
+        }
+    }
+    
+    private func scheduleNotifications()
+    {
+        for notification in notifications
+        {
+            let content      = UNMutableNotificationContent()
+            content.title    = notification.title
+            content.sound    = .default
+
+            let trigger = UNCalendarNotificationTrigger(dateMatching: notification.datetime, repeats: false)
+
+            let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
+
+            UNUserNotificationCenter.current().add(request) { error in
+
+                guard error == nil else { return }
+
+                print("Notification scheduled! --- ID = \(notification.id)")
+            }
+        }
+    }
+    
+    private func requestAuthorization()
+    {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+
+            if granted == true && error == nil {
+                self.scheduleNotifications()
+            }
+        }
+    }
+    
+    func schedule()
+    {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                self.requestAuthorization()
+            case .authorized, .provisional:
+                self.scheduleNotifications()
+            default:
+                break // Do nothing
+            }
+        }
+    }
+
 }
 
 class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -22,6 +92,9 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
     @IBOutlet weak var subscriptionTypeSegmentedControl: UISegmentedControl!
     
     var subscriptionType: SubscriptionType = .fixed
+    
+    
+    
     
     @IBAction func onSubscriptionTypeChange(_ sender: Any) {
         if (subscriptionTypeSegmentedControl.selectedSegmentIndex == 0) {
@@ -42,6 +115,15 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             subscription["user"] = PFUser.current()!
             subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
             subscription["payedThisMonth"] = false
+            subscription["notification"] = true
+        
+            let manager = LocalNotificationManager()
+            
+            manager.notifications = [
+                Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30))]
+            manager.schedule()
+            
+            
             
             subscription.saveInBackground { (success, error) in
                 if success {
@@ -56,6 +138,13 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             subscription["user"] = PFUser.current()!
             subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
             subscription["payedThisMonth"] = false
+            subscription["notification"] = true
+            
+            let manager = LocalNotificationManager()
+            
+            manager.notifications = [
+                Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30))]
+            manager.schedule()
             
             subscription.saveInBackground { (success, error) in
                 if success {

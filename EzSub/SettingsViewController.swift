@@ -25,4 +25,6 @@ class SettingsViewController: UIViewController {
         
         delegate.window?.rootViewController = loginvc
     }
+    
+    
 }
