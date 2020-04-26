@@ -52,8 +52,8 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
         
             let manager = LocalNotificationManager()
             
-            manager.notifications = [
-                Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30))]
+            manager.notifications.append(
+                Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30)))
             manager.schedule()
             
             
@@ -75,8 +75,8 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             
             let manager = LocalNotificationManager()
             
-            manager.notifications = [
-                Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30))]
+            manager.notifications.append(
+                Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30)))
             manager.schedule()
             
             subscription.saveInBackground { (success, error) in
