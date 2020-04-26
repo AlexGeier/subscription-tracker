@@ -196,16 +196,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6QP-Jo-RmB">
-                                <rect key="frame" x="128.5" y="786" width="157" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Delete subscription">
-                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onDeleteSubscription:" destination="asQ-Ir-amu" eventType="touchUpInside" id="WHE-Hn-3ZV"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="UoG-e1-vPH">
                                 <rect key="frame" x="16" y="393" width="382" height="164"/>
                                 <subviews>
@@ -230,8 +220,6 @@
                         <constraints>
                             <constraint firstItem="UoG-e1-vPH" firstAttribute="centerY" secondItem="3x1-po-TWg" secondAttribute="centerY" id="1ch-Mo-IYt"/>
                             <constraint firstItem="UoG-e1-vPH" firstAttribute="leading" secondItem="3x1-po-TWg" secondAttribute="leading" constant="16" id="9QD-Gv-BO6"/>
-                            <constraint firstItem="3x1-po-TWg" firstAttribute="bottom" secondItem="6QP-Jo-RmB" secondAttribute="bottom" constant="42" id="Eos-G0-Lmm"/>
-                            <constraint firstItem="6QP-Jo-RmB" firstAttribute="centerX" secondItem="pph-Ej-9UY" secondAttribute="centerX" id="Jl3-Ny-Fj5"/>
                             <constraint firstItem="3x1-po-TWg" firstAttribute="trailing" secondItem="UoG-e1-vPH" secondAttribute="trailing" constant="16" id="LtI-XH-0aI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3x1-po-TWg"/>
@@ -253,16 +241,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIb-Ug-Qce">
-                                <rect key="frame" x="128.5" y="786" width="157" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Delete subscription">
-                                    <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="onDeleteSubscription:" destination="kQh-YC-0yP" eventType="touchUpInside" id="pbH-rC-s2R"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTw-Fu-6D6">
                                 <rect key="frame" x="134.5" y="439" width="145" height="72"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -276,8 +254,6 @@
                         <constraints>
                             <constraint firstItem="OTw-Fu-6D6" firstAttribute="centerY" secondItem="VC6-Py-DQc" secondAttribute="centerY" id="0Kz-bT-DEl"/>
                             <constraint firstItem="OTw-Fu-6D6" firstAttribute="centerX" secondItem="VC6-Py-DQc" secondAttribute="centerX" id="Rf6-EW-fE4"/>
-                            <constraint firstItem="DIb-Ug-Qce" firstAttribute="centerX" secondItem="8tc-iA-3aY" secondAttribute="centerX" id="bap-AE-rYZ"/>
-                            <constraint firstItem="VC6-Py-DQc" firstAttribute="bottom" secondItem="DIb-Ug-Qce" secondAttribute="bottom" constant="42" id="dck-vV-dvh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VC6-Py-DQc"/>
                     </view>
