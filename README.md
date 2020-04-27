@@ -161,4 +161,5 @@ We're still debating on which network to use, either Firebase or Parse. Our grou
 Here's a walkthrough of implemented user stories:
 
 <img src='http://g.recordit.co/wfyeKhIOr0.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/ND3yiLI.gif'  title='Video Walkthrough' width='' alt='Video Walkthrough' />
    
