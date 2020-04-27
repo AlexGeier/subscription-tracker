@@ -28,12 +28,21 @@ struct FixedPayment: Payment {
 class FixedSubscriptionDetailViewController: UIViewController {
     var subscription: FixedSubscription?
     
+    @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var amountLabel: UILabel!
+    
+    @IBOutlet weak var totalPaymentLabel: UILabel!
     
     var payments = [FixedPayment]()
     
+    var totalPayment: Double = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (subscription?.payedThisMonth ?? true) {
+            payButton.isEnabled = false
+        }
+        
         amountLabel.text = String(format: "$%.2f", subscription?.amount ?? 0)
         
         let query = PFQuery(className: "FixedPayment")
@@ -43,10 +52,13 @@ class FixedSubscriptionDetailViewController: UIViewController {
             if (error != nil) {
                 return
             }
-            guard let payments = payments else { return }
-                        
+            guard let payments = payments else {
+                return
+            }
+            
             for payment in payments {
                 let amount = payment["amount"] as! Double
+                self.totalPayment += amount
                 let month = payment["month"] as! Int
                 let year = payment["year"] as! Int
                 let subscriptionId = payment["subscriptionId"] as! String
@@ -54,14 +66,15 @@ class FixedSubscriptionDetailViewController: UIViewController {
                 self.payments.append(.init(amount: amount, month: month, year: year, subscriptionId: subscriptionId, user: user))
             }
             
-            // TODO: Reload tableview after all payments have been added
-            // TODO: Set total amount field
-            // TODO: Set average amount field
+            DispatchQueue.main.async {
+                self.totalPaymentLabel.text = String(format: "$%.2f", self.totalPayment)
+            }
         }
         
     }
     
     @IBAction func onPaySubscriptionPressed(_ sender: Any) {
+        payButton.isEnabled = false
         let query = PFQuery(className: "FixedSubscription")
         
         query.getObjectInBackground(withId: (subscription?.id)!) { (object, error) in
@@ -87,7 +100,11 @@ class FixedSubscriptionDetailViewController: UIViewController {
                     
                     payment.saveInBackground { (success, error) in
                         if success {
-                            self.navigationController?.popViewController(animated: true)
+                            self.totalPayment += self.subscription?.amount ?? 0
+                            
+                            DispatchQueue.main.async {
+                                self.totalPaymentLabel.text = String(format: "$%.2f", self.totalPayment)
+                            }
                         } else {
                             print("SUBSCRIPTION SAVE ERROR: \(error)")
                         }

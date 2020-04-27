@@ -113,8 +113,19 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             subscription["name"] = subscriptionName.text!
             subscription["amount"] = Double(subscriptionAmount.text!)
             subscription["user"] = PFUser.current()!
-            subscription["billingDay"] = billingDatePicker.selectedRow(inComponent: 0) + 1
-            subscription["payedThisMonth"] = false
+            let billingDay = billingDatePicker.selectedRow(inComponent: 0) + 1
+            subscription["billingDay"] = billingDay
+            
+            let calendar = Calendar.current
+            let date = Date()
+            let dayOfMonth = calendar.component(.day, from: date)
+            
+            if (billingDay < dayOfMonth) {
+                subscription["payedThisMonth"] = true
+            } else {
+                subscription["payedThisMonth"] = false
+            }
+            
             subscription["notification"] = true
         
             let manager = LocalNotificationManager()

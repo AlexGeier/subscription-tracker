@@ -101,11 +101,9 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     let billingDay = subscription["billingDay"]
                     let payedThisMonth = subscription["payedThisMonth"]
                     
-                    if (!(payedThisMonth as! Bool)) {
-                        self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int, id: subscription.objectId!, payedThisMonth: payedThisMonth as! Bool))
-                        
-                        self.parseObjects[subscription.objectId!] = subscription
-                    }
+                    self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int, id: subscription.objectId!, payedThisMonth: payedThisMonth as! Bool))
+                    
+                    self.parseObjects[subscription.objectId!] = subscription
                     
                     
                     
@@ -147,7 +145,6 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
         let daysDueIn = subscription.billingDay - dayOfMonth
         
         if (subscription.type == .fixed) {
-            print("FIXED CELL")
             let cell = subscriptionListTableView.dequeueReusableCell(withIdentifier: fixedSubscriptionCellId) as! FixedSubscriptionCell
             cell.subscriptionName.text = subscription.name
             cell.subscriptionAmount.text = "$\(subscription.amount)"
@@ -168,9 +165,10 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
             
             return cell
         } else {
-            print("DYNAMIC CELL")
             let cell = subscriptionListTableView.dequeueReusableCell(withIdentifier: dynamicSubscriptionCellId) as! DynamicSubscriptionCell
             cell.subscriptionName.text = subscription.name
+            
+            // TODO: Can get average payment here and set the TBD field to that
             
             if (subscription.payedThisMonth) {
                 cell.dueDateLabel.text = "Due next month"
