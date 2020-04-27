@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import UserNotifications
 
 class DynamicSubscriptionDetailViewController: UIViewController {
     var subscription: DynamicSubscription?
@@ -106,4 +107,45 @@ class DynamicSubscriptionDetailViewController: UIViewController {
         }
     }
 }
+    @IBAction func notificationSwitch(_ sender: UISwitch) {
+        let query = PFQuery(className: "FixedSubscription")
+        let manager = LocalNotificationManager()
+        
+        query.getObjectInBackground(withId: (subscription?.id)!) { (object, error) in
+            if (error != nil) {
+                return
+            }
+            if (object != nil) {
+                if (sender.isOn == false) {
+                    object?["notification"] = false
+                    manager.unschedule(subname: object?["name"] as! String)
+                    object?.saveInBackground { (success, error) in
+                        if success {
+                            print("Notification off!")
+                        } else {
+                            print("Notification update ERROR: \(String(describing: error))")
+                        }
+                    }
+                } else {
+                    object?["notification"] = true
+                    
+                    manager.notifications.append(
+                        Notification(id: "Payment Due", title: object?["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: object?["billingDay"] as! Int, hour: 21, minute: 45))
+                    )
+                    
+                    manager.schedule(subname: object?["name"] as! String)
+                    
+                    object?.saveInBackground { (success, error) in
+                        if success {
+                            print("Notification on!")
+                        } else {
+                            print("Notification update ERROR: \(String(describing: error))")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
 }

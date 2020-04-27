@@ -319,6 +319,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Cj-G8-Mpd">
                                                 <rect key="frame" x="333" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="notificationSwitch:" destination="kQh-YC-0yP" eventType="valueChanged" id="h0p-Xs-zce"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
