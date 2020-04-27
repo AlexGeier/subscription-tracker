@@ -126,7 +126,7 @@ class FixedSubscriptionDetailViewController: UIViewController {
             if (object != nil) {
                 if (sender.isOn == false) {
                     object?["notification"] = false
-                    
+                    manager.unschedule(subname: object?["name"] as! String)
                     object?.saveInBackground { (success, error) in
                         if success {
                             print("Notification off!")
@@ -137,11 +137,11 @@ class FixedSubscriptionDetailViewController: UIViewController {
                 } else {
                     object?["notification"] = true
                     
-                    manager.notifications = [
+                    manager.notifications.append(
                         Notification(id: "Payment Due", title: object?["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: object?["billingDay"] as! Int, hour: 21, minute: 45))
-                    ]
+                    )
                     
-                    manager.schedule()
+                    manager.schedule(subname: object?["name"] as! String)
                     
                     object?.saveInBackground { (success, error) in
                         if success {

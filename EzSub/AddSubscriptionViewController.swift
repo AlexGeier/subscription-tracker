@@ -65,7 +65,7 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             
             manager.notifications = [
                 Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30))]
-            manager.schedule()
+            manager.schedule(subname: subscription["name"] as! String)
             
             
             
@@ -88,7 +88,7 @@ class AddSubscriptionViewController: UIViewController, UIPickerViewDelegate, UIP
             
             manager.notifications = [
                 Notification(id: "Payment Due", title: subscription["name"] as! String, datetime: DateComponents(calendar: Calendar.current, day: subscription["billingDay"] as! Int, hour: 23, minute: 30))]
-            manager.schedule()
+            manager.schedule(subname: subscription["name"] as! String)
             
             subscription.saveInBackground { (success, error) in
                 if success {
