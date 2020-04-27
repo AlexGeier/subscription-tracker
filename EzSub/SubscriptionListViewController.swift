@@ -58,7 +58,7 @@ class LocalNotificationManager
         }
     }
     
-    private func scheduleNotifications()
+    private func scheduleNotifications(subname: String)
     {
         for notification in notifications
         {
@@ -68,36 +68,77 @@ class LocalNotificationManager
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: notification.datetime, repeats: false)
 
-            let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: subname, content: content, trigger: trigger)
 
             UNUserNotificationCenter.current().add(request) { error in
 
                 guard error == nil else { return }
 
-                print("Notification scheduled! --- ID = \(notification.id)")
+                print("Notification scheduled! --- ID = \(subname)")
+                //print(UNUserNotificationCenter.current())
             }
         }
     }
     
-    private func requestAuthorization()
+    private func unscheduleNotifications(subname: String)
+    {
+        UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+           var identifiers: [String] = []
+           for notification:UNNotificationRequest in notificationRequests {
+               if notification.identifier == subname {
+                  identifiers.append(notification.identifier)
+               }
+           }
+           UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+//            UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+//                print(notificationRequests)}
+        }
+    }
+    
+    private func requestAuthorization(subname: String)
     {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
 
             if granted == true && error == nil {
-                self.scheduleNotifications()
+                self.scheduleNotifications(subname: subname)
             }
         }
     }
     
-    func schedule()
+    private func requestAuthorizationDelete(subname: String)
+    {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
+
+            if granted == true && error == nil {
+                self.unscheduleNotifications(subname: subname)
+            }
+        }
+    }
+        
+    func schedule(subname: String)
     {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
 
             switch settings.authorizationStatus {
             case .notDetermined:
-                self.requestAuthorization()
+                self.requestAuthorization(subname: subname)
             case .authorized, .provisional:
-                self.scheduleNotifications()
+                self.scheduleNotifications(subname: subname)
+            default:
+                break // Do nothing
+            }
+        }
+    }
+    
+    func unschedule(subname: String)
+    {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+
+            switch settings.authorizationStatus {
+            case .notDetermined:
+                self.requestAuthorizationDelete(subname: subname)
+            case .authorized, .provisional:
+                self.unscheduleNotifications(subname: subname)
             default:
                 break // Do nothing
             }
