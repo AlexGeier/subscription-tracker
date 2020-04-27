@@ -32,6 +32,7 @@ struct FixedSubscription: Subscription {
     let billingDay: Int
     let id: String
     var payedThisMonth: Bool
+    
 }
 
 struct DynamicSubscription: Subscription {
@@ -147,20 +148,17 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     let billingDay = subscription["billingDay"]
                     let amount_f = (amount as? NSNumber)?.floatValue ?? 0
                     let payedThisMonth = subscription["payedThisMonth"]
+                    self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double, billingDay: billingDay as! Int, id: subscription.objectId!, payedThisMonth: payedThisMonth as! Bool))
                     
-                    if (!(payedThisMonth as! Bool)) {
-                        self.subscriptions.append(FixedSubscription(name: name as! String, amount: amount as! Double, billingDay: billingDay as! Int, id: subscription.objectId!, payedThisMonth: payedThisMonth as! Bool))
-                        
-                        total = total + amount_f
-
-                        self.parseObjects[subscription.objectId!] = subscription
-                    }
+                    total = total + amount_f
+                    
+                    self.parseObjects[subscription.objectId!] = subscription
                     
                     self.totalAmountLabel.text = String(format: "$%.2f", total)
+                    
                 })
-                
-                group.leave()
             }
+            group.leave()
         }
         
         let dynamicQuery = PFQuery(className: "DynamicSubscription")
@@ -173,23 +171,25 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
                     let billingDay = subscription["billingDay"]
                     let payedThisMonth = subscription["payedThisMonth"]
                     
-                    if (!(payedThisMonth as! Bool)) {
-                        self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int, id: subscription.objectId!, payedThisMonth: payedThisMonth as! Bool))
-                        
-                        self.parseObjects[subscription.objectId!] = subscription
-                    }
-
+                    self.subscriptions.append(DynamicSubscription(name: name as! String, billingDay: billingDay as! Int, id: subscription.objectId!, payedThisMonth: payedThisMonth as! Bool))
                     
-
+                    self.parseObjects[subscription.objectId!] = subscription
+                    
+                    
+                    
                 })
             }
             
             group.leave()
         }
         
-        
         group.notify(queue: .main) {
             self.subscriptions.sort { (sub1, sub2) -> Bool in
+                if (sub1.payedThisMonth && !sub2.payedThisMonth) {
+                    return false
+                } else if (!sub1.payedThisMonth && sub2.payedThisMonth) {
+                    return true
+                }
                 if (sub1.billingDay == sub2.billingDay) {
                     return sub1.name < sub2.name
                 }
@@ -218,14 +218,19 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
             let cell = subscriptionListTableView.dequeueReusableCell(withIdentifier: fixedSubscriptionCellId) as! FixedSubscriptionCell
             cell.subscriptionName.text = subscription.name
             cell.subscriptionAmount.text = "$\(subscription.amount)"
-            if (daysDueIn < 0) {
-                cell.dueDateLabel.text = "Past due"
-            } else if (daysDueIn == 0) {
-                cell.dueDateLabel.text = "Today"
-            } else if (daysDueIn == 1){
-                cell.dueDateLabel.text = "\(daysDueIn) day"
+            
+            if (subscription.payedThisMonth) {
+                cell.dueDateLabel.text = "Due next month"
             } else {
-                cell.dueDateLabel.text = "\(daysDueIn) days"
+                if (daysDueIn < 0) {
+                    cell.dueDateLabel.text = "Past due"
+                } else if (daysDueIn == 0) {
+                    cell.dueDateLabel.text = "Today"
+                } else if (daysDueIn == 1){
+                    cell.dueDateLabel.text = "\(daysDueIn) day"
+                } else {
+                    cell.dueDateLabel.text = "\(daysDueIn) days"
+                }
             }
             
             return cell
@@ -233,14 +238,20 @@ class SubscriptionListViewController: UIViewController, UITableViewDelegate, UIT
             let cell = subscriptionListTableView.dequeueReusableCell(withIdentifier: dynamicSubscriptionCellId) as! DynamicSubscriptionCell
             cell.subscriptionName.text = subscription.name
             
-            if (daysDueIn < 0) {
-                cell.dueDateLabel.text = "Past due"
-            } else if (daysDueIn == 0) {
-                cell.dueDateLabel.text = "Today"
-            } else if (daysDueIn == 1){
-                cell.dueDateLabel.text = "\(daysDueIn) day"
+            // TODO: Can get average payment here and set the TBD field to that
+            
+            if (subscription.payedThisMonth) {
+                cell.dueDateLabel.text = "Due next month"
             } else {
-                cell.dueDateLabel.text = "\(daysDueIn) days"
+                if (daysDueIn < 0) {
+                    cell.dueDateLabel.text = "Past due"
+                } else if (daysDueIn == 0) {
+                    cell.dueDateLabel.text = "Today"
+                } else if (daysDueIn == 1){
+                    cell.dueDateLabel.text = "\(daysDueIn) day"
+                } else {
+                    cell.dueDateLabel.text = "\(daysDueIn) days"
+                }
             }
             
             return cell

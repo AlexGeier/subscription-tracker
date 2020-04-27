@@ -215,18 +215,40 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hgU-Ej-5wT">
+                                <rect key="frame" x="16" y="825.5" width="382" height="20.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount Paid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4C-8k-FaF">
+                                        <rect key="frame" x="0.0" y="0.0" width="191" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqG-XE-d4R">
+                                        <rect key="frame" x="191" y="0.0" width="191" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="UoG-e1-vPH" firstAttribute="centerY" secondItem="3x1-po-TWg" secondAttribute="centerY" id="1ch-Mo-IYt"/>
+                            <constraint firstItem="hgU-Ej-5wT" firstAttribute="leading" secondItem="3x1-po-TWg" secondAttribute="leading" constant="16" id="583-Ai-VeO"/>
                             <constraint firstItem="UoG-e1-vPH" firstAttribute="leading" secondItem="3x1-po-TWg" secondAttribute="leading" constant="16" id="9QD-Gv-BO6"/>
                             <constraint firstItem="3x1-po-TWg" firstAttribute="trailing" secondItem="UoG-e1-vPH" secondAttribute="trailing" constant="16" id="LtI-XH-0aI"/>
+                            <constraint firstItem="3x1-po-TWg" firstAttribute="bottom" secondItem="hgU-Ej-5wT" secondAttribute="bottom" constant="16" id="Zdq-58-olO"/>
+                            <constraint firstItem="3x1-po-TWg" firstAttribute="trailing" secondItem="hgU-Ej-5wT" secondAttribute="trailing" constant="16" id="diW-66-1KG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3x1-po-TWg"/>
                     </view>
                     <navigationItem key="navigationItem" id="dms-ob-UHW"/>
                     <connections>
                         <outlet property="amountLabel" destination="rSC-yS-3gj" id="BeE-1y-sX4"/>
+                        <outlet property="payButton" destination="6Yl-af-QbQ" id="pjb-OR-aDt"/>
+                        <outlet property="totalPaymentLabel" destination="nqG-XE-d4R" id="IKw-N6-lg5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eV6-IN-dE9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -241,23 +263,82 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTw-Fu-6D6">
-                                <rect key="frame" x="134.5" y="439" width="145" height="72"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <state key="normal" title="Payed!"/>
-                                <connections>
-                                    <action selector="onPaySubscriptionPressed:" destination="kQh-YC-0yP" eventType="touchUpInside" id="pIU-le-KMB"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="m0Q-4R-NAC">
+                                <rect key="frame" x="16" y="389" width="382" height="172"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount Paid" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nSg-H7-xIL">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="68"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTw-Fu-6D6">
+                                        <rect key="frame" x="0.0" y="100" width="382" height="72"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                        <state key="normal" title="Payed!"/>
+                                        <connections>
+                                            <action selector="onPaySubscriptionPressed:" destination="kQh-YC-0yP" eventType="touchUpInside" id="pIU-le-KMB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="sOL-TL-hqC">
+                                <rect key="frame" x="16" y="805" width="382" height="49"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="5Lb-ox-QMB">
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount Paid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jed-Fv-xMJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCG-ut-rTu">
+                                                <rect key="frame" x="191" y="0.0" width="191" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="VgZ-Fy-Ea7">
+                                        <rect key="frame" x="0.0" y="28.5" width="382" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Amount Paid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQc-kp-IiS">
+                                                <rect key="frame" x="0.0" y="0.0" width="191" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCb-vu-Smx">
+                                                <rect key="frame" x="191" y="0.0" width="191" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="OTw-Fu-6D6" firstAttribute="centerY" secondItem="VC6-Py-DQc" secondAttribute="centerY" id="0Kz-bT-DEl"/>
-                            <constraint firstItem="OTw-Fu-6D6" firstAttribute="centerX" secondItem="VC6-Py-DQc" secondAttribute="centerX" id="Rf6-EW-fE4"/>
+                            <constraint firstItem="sOL-TL-hqC" firstAttribute="leading" secondItem="VC6-Py-DQc" secondAttribute="leading" constant="16" id="2z2-0z-0cc"/>
+                            <constraint firstItem="VC6-Py-DQc" firstAttribute="bottom" secondItem="sOL-TL-hqC" secondAttribute="bottom" constant="8" id="60C-rM-RdZ"/>
+                            <constraint firstItem="VC6-Py-DQc" firstAttribute="trailing" secondItem="sOL-TL-hqC" secondAttribute="trailing" constant="16" id="Ivq-aq-Sjw"/>
+                            <constraint firstAttribute="trailing" secondItem="m0Q-4R-NAC" secondAttribute="trailing" constant="16" id="JSQ-Rc-Mzp"/>
+                            <constraint firstItem="m0Q-4R-NAC" firstAttribute="leading" secondItem="VC6-Py-DQc" secondAttribute="leading" constant="16" id="ZKu-3b-I1q"/>
+                            <constraint firstItem="m0Q-4R-NAC" firstAttribute="centerY" secondItem="VC6-Py-DQc" secondAttribute="centerY" id="blo-79-heM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VC6-Py-DQc"/>
                     </view>
                     <navigationItem key="navigationItem" id="mdF-zW-ZgN"/>
+                    <connections>
+                        <outlet property="amountField" destination="nSg-H7-xIL" id="73w-aB-4Ro"/>
+                        <outlet property="averagePaidLabel" destination="jCb-vu-Smx" id="vHU-EF-tFG"/>
+                        <outlet property="payButton" destination="OTw-Fu-6D6" id="5kr-8L-yum"/>
+                        <outlet property="totalPaidLabel" destination="ZCG-ut-rTu" id="46Q-AM-tnT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZY-KI-tSF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
