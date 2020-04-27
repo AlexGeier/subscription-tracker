@@ -79,6 +79,19 @@ class LocalNotificationManager
         }
     }
     
+//    private func unscheduleNotifications()
+//    {
+//        UNUserNotificationCenter.current().getPendingNotificationRequests { (notificationRequests) in
+//           var identifiers: [String] = []
+//           for notification:UNNotificationRequest in notificationRequests {
+//               if notification.identifier == "identifierCancel" {
+//                  identifiers.append(notification.identifier)
+//               }
+//           }
+//           UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: identifiers)
+//        }
+//    }
+    
     private func requestAuthorization()
     {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
